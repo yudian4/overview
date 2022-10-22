@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				font-size: 14px;
+				font-family: "微软雅黑";
+			}
+
+			li {
+				list-style: none;
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			.nav_test {
+				width: 600px;
+				margin: 0 auto;
+				height: 44px;
+				background-color: #960;
+				color: #FFF;
+			}
+
+			.nav_test li {
+				width: 108px;
+				text-align: center;
+				line-height: 44px;
+				position: relative;
+				float: left;
+			}
+
+			.nav_test li a {
+				display: block;
+			}
+
+			.nav_test li dl {
+				position: absolute;
+				top: 44px;
+				left: 0px;
+				width: 108px;
+				background: #fff;
+				z-index: 999;
+				overflow: hidden;
+				max-height: 0px;
+			}
+
+			.nav_test li:hover dl {
+				max-height: inherit;
+			}
+
+			.nav_test li dl dd {
+				height: 44px;
+				background-color: #960;
+			}
+
+			/*  */
+			.box {
+				width: 600px;
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 30px;
+			}
+
+			.menu {
+				overflow: hidden
+			}
+
+			.menu li {
+				float: left;
+				width: 80px;
+				line-height: 40px;
+				text-align: center;
+			}
+
+			.menu li.cur {
+				background-color: #e8e8e8
+			}
+
+			.box>div {
+				width: 600px;
+				height: 180px;
+				background-color: #e8e8e8;
+				display: none
+			}
+
+			.box>div.cur {
+				display: block;
+			}
+
+			/*  */
+
+			#FontScroll {
+				margin: 0 auto;
+				width: 600px;
+				height: 90px;
+				line-height: 30px;
+				overflow: hidden;
+				background-color: #2A2A2A;
+				margin-top: 50px;
+			}
+
+			#FontScroll a {
+				color: rgba(255, 255, 255, .4);
+				padding: 0 0 0 15px;
+			}
+
+			#FontScroll .line {
+				text-align: left;
+				width: 100%;
+			}
+
+			#FontScroll .fontColor a {
+				color: rgba(255, 255, 255, 1);
+				transition: all 0.4s ease 0s;
+			}
+		</style>
+		<title>无标题文档</title>
+	</head>
+
+	<body>
+		<ul class="nav_test">
+			<li>
+				<a>导航</a>
+				<dl>
+					<dd><a>二级导航</a></dd>
+					<dd><a>二级导航</a></dd>
+					<dd><a>二级导航</a></dd>
+				</dl>
+			</li>
+			<li>
+				<a>导航</a>
+				<dl>
+					<dd><a>二级导航</a></dd>
+					<dd><a>二级导航</a></dd>
+					<dd><a>二级导航</a></dd>
+				</dl>
+			</li>
+			<li>
+				<a>导航</a>
+				<dl>
+					<dd><a>二级导航</a></dd>
+					<dd><a>二级导航</a></dd>
+					<dd><a>二级导航</a></dd>
+				</dl>
+			</li>
+		</ul>
+
+		<div class="box">
+			<ul class="menu">
+				<li class="cur">菜单一</li>
+				<li>菜单二</li>
+				<li>菜单三</li>
+			</ul>
+			<div class="cur">内容1</div>
+			<div>内容2</div>
+			<div>内容3</div>
+		</div>
+
+		<div id="FontScroll">
+			<ul>
+				<li><a href="javascript:;">第1条 jQuery是一个快速、简洁的JavaScript框架</a></li>
+				<li><a href="javascript:;">第2条 它封装JavaScript常用的功能代码</a></li>
+				<li><a href="javascript:;">第3条 具有独特的链式语法和短小清晰的多功能接口</a></li>
+				<li><a href="javascript:;">第4条 具有高效灵活的css选择器</a></li>
+				<li><a href="javascript:;">第5条 并且可对CSS选择器进行扩展</a></li>
+				<li><a href="javascript:;">第6条 并且已经支持CSS选择符</a></li>
+				<li><a href="javascript:;">第7条 事件处理和AJAX交互</a></li>
+				<li><a href="javascript:;">第8条 微软和诺基亚公司正式宣布支持开源的jQuery库</a></li>
+				<li><a href="javascript:;">第9条 使用原生的JSON.parse解析json对象</a></li>
+			</ul>
+		</div>
+		<!--  -->
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/fontscroll.js"></script>
+		<script>
+			$(".menu li").click(function() {
+				var index = $(".menu li").index(this);
+				$(".menu li").removeClass("cur").eq(index).toggleClass("cur");
+				$(".box > div").hide().eq(index).fadeIn(200);
+			})
+			// 文字滚动
+			$(function() {
+				$('#FontScroll').FontScroll({
+					time: 1500,
+					num: 1
+				});
+			});
+		</script>
+
+
+	</body>
+</html>
